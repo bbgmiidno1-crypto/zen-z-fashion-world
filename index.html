@@ -449,5 +449,27 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach((element) => observer.observe(element));
 });
 </script>
+  <!-- ZEN-Z PRODUCT QUICK VIEW -->
+<div id="quickView" style="display:none;position:fixed;inset:0;background:#000d;z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#181818;border:1px solid #d6b36a;padding:24px;max-width:420px;width:100%;position:relative;">
+    <button id="closeQuickView" style="position:absolute;right:12px;top:12px;background:none;color:#d6b36a;border:0;font-size:26px;">&times;</button>
+
+    <img id="quickViewImage" src="" alt="Product image" style="width:100%;max-height:300px;object-fit:cover;">
+
+    <h2 id="quickViewName" style="margin:18px 0 10px;"></h2>
+    <p id="quickViewPrice" style="color:#d6b36a;margin-bottom:20px;"></p>
+
+    <label for="quickViewSize">Select Size</label>
+    <select id="quickViewSize" style="display:block;width:100%;padding:12px;margin:10px 0 20px;background:#222;color:white;border:1px solid #555;">
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="XXL">XXL</option>
+    </select>
+
+    <button id="quickViewAdd" class="button" style="width:100%;cursor:pointer;">ADD TO CART</button>
+  </div>
+</div>
 </body>
 </html>
