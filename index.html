@@ -352,6 +352,31 @@
     <p>Fashion for every version of you.</p>
     <p>© 2026 ZEN-Z FASHION WORLD. All rights reserved.</p>
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(
+    ".section-heading, .category, .product, .banner"
+  );
 
+  elements.forEach((element) => {
+    element.style.opacity = "0";
+    element.style.transform = "translateY(35px)";
+    element.style.transition =
+      "opacity 0.7s ease, transform 0.7s ease";
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  elements.forEach((element) => observer.observe(element));
+});
+</script>
 </body>
 </html>
