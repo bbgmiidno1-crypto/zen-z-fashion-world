@@ -254,6 +254,43 @@
         height: 220px;
       }
     }
+    /* ZEN-Z Fashion Product Carousel */
+.products {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 15px 5px 25px;
+  scrollbar-width: thin;
+  scrollbar-color: #d6b36a #222;
+}
+
+.products .product {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 220px;
+  scroll-snap-align: start;
+  border: 1px solid #292929;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.products .product:hover {
+  transform: translateY(-8px);
+  border-color: #d6b36a;
+}
+
+.products .product img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .products .product {
+    flex: 0 0 72%;
+    min-width: 0;
+  }
+}
   </style>
 </head>
 
