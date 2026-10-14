@@ -291,6 +291,40 @@
     min-width: 0;
   }
 }
+    /* ZEN-Z 3D PRODUCT EFFECTS */
+
+.products .product {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.products .product img {
+  transition: transform 0.5s ease;
+  transform-origin: center;
+}
+
+@media (hover: hover) {
+  .products .product:hover {
+    transform: translateY(-10px) rotateY(-4deg);
+    border-color: #d6b36a;
+    box-shadow: 0 15px 35px #d6b36a22;
+  }
+
+  .products .product:hover img {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products .product,
+  .products .product img {
+    transition: none;
+  }
+}
   </style>
 </head>
 
