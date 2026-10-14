@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>ZEN-Z FASHION WORLD</title>
+  <meta name="description" content="Discover your style at ZEN-Z FASHION WORLD. Explore the latest fashion and clothing collections.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 6%;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      color: #d6b36a;
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(#0009, #000b),
+        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero p {
+      color: #d6b36a;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 8vw, 85px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #d6b36a;
+    }
+
+    .hero .subtitle {
+      color: #ddd;
+      letter-spacing: 1px;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 28px;
+      background: #d6b36a;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border: 1px solid #d6b36a;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: transparent;
+      color: #d6b36a;
+    }
+
+    .section {
+      padding: 70px 6%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading p {
+      color: #d6b36a;
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(26px, 5vw, 42px);
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      min-height: 220px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      text-decoration: none;
+      color: white;
+      position: relative;
+      transition: transform .3s;
+    }
+
+    .category:hover {
+      transform: translateY(-6px);
+    }
+
+    .category h3 {
+      position: relative;
+      text-shadow: 0 2px 10px black;
+      font-size: 19px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: #1b1b1b;
+      padding-bottom: 18px;
+      transition: transform .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product h3 {
+      font-size: 15px;
+      padding: 15px 12px 8px;
+    }
+
+    .product p {
+      color: #d6b36a;
+      padding: 0 12px;
+      font-size: 14px;
+    }
+
+    .banner {
+      margin: 10px 6% 70px;
+      padding: 60px 20px;
+      text-align: center;
+      background: #202020;
+      border: 1px solid #594725;
+    }
+
+    .banner h2 {
+      font-size: clamp(25px, 5vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .banner p {
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 30px 6%;
+      text-align: center;
+      border-top: 1px solid #333;
+      color: #aaa;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    footer span {
+      color: #d6b36a;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category {
+        min-height: 180px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">ZEN-Z <span>FASHION</span></div>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#categories">CATEGORIES</a>
+      <a href="#collection">COLLECTION</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <p>YOUR STYLE. YOUR IDENTITY.</p>
+      <h1>WEAR YOUR<br><span>OWN STORY.</span></h1>
+      <div class="subtitle">Discover fashion that defines you.</div>
+      <a class="button" href="#collection">EXPLORE COLLECTION</a>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-heading">
+        <p>FIND YOUR STYLE</p>
+        <h2>SHOP BY CATEGORY</h2>
+      </div>
+
+      <div class="categories">
+        <a class="category" href="#collection"
+          style="background-image:linear-gradient(transparent,#000b),url('https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80')">
+          <h3>MEN'S WEAR</h3>
+        </a>
+
+        <a class="category" href="#collection"
+          style="background-image:linear-gradient(transparent,#000b),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80')">
+          <h3>WOMEN'S WEAR</h3>
+        </a>
+
+        <a class="category" href="#collection"
+          style="background-image:linear-gradient(transparent,#000b),url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80')">
+          <h3>T-SHIRTS</h3>
+        </a>
+
+        <a class="category" href="#collection"
+          style="background-image:linear-gradient(transparent,#000b),url('https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80')">
+          <h3>DENIM & JEANS</h3>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="collection">
+      <div class="section-heading">
+        <p>CURATED FOR YOU</p>
+        <h2>FEATURED COLLECTION</h2>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Classic T-shirt">
+          <h3>Classic Everyday Tee</h3>
+          <p>₹599</p>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Men's fashion">
+          <h3>Modern Men's Style</h3>
+          <p>₹1,299</p>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Women's fashion">
+          <h3>Contemporary Fashion</h3>
+          <p>₹999</p>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80" alt="Denim jeans">
+          <h3>Essential Denim</h3>
+          <p>₹1,099</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner">
+      <h2>STYLE THAT SPEAKS.</h2>
+      <p>Discover your next favourite outfit with ZEN-Z FASHION WORLD.</p>
+      <a href="#collection" class="button">DISCOVER MORE</a>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h3><span>ZEN-Z FASHION WORLD</span></h3>
+    <p>Fashion for every version of you.</p>
+    <p>© 2026 ZEN-Z FASHION WORLD. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
