@@ -795,18 +795,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("cartCheckout").addEventListener("click", () => {
-    if (cart.length === 0) {
-      alert("Your cart is empty. Please add a product first.");
-      return;
-    }
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add a product first.");
+    return;
+  }
 
-    alert(
-      "Your cart total is " +
-      money(cart.reduce((sum, item) => sum + item.price * item.qty, 0)) +
-      ". Secure checkout and Cash on Delivery setup are the next step."
-    );
+  const checkout = document.getElementById("codCheckout");
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
+
+  if (!checkout) {
+    alert("Checkout form nahi mila. Please check your HTML.");
+    return;
+  }
+
+  document.getElementById("codTotal").textContent =
+    "Order Total: " + money(total);
+
+  panel.style.display = "none";
+  checkout.style.display = "flex";
+});
+const cancelCOD = document.getElementById("cancelCOD");
+const codCheckout = document.getElementById("codCheckout");
+
+if (cancelCOD && codCheckout) {
+  cancelCOD.addEventListener("click", () => {
+    codCheckout.style.display = "none";
   });
-
+}
   renderCart();
 })();
 </script>
