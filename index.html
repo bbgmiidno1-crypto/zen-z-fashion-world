@@ -325,6 +325,137 @@
     transition: none;
   }
 }
+    /* ===== ZEN-Z CINEMATIC 3D EXPERIENCE ===== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  perspective: 1200px;
+  overflow-x: hidden;
+}
+
+section {
+  transform-style: preserve-3d;
+}
+
+/* Cinematic section reveal */
+.section,
+.hero,
+.banner {
+  position: relative;
+  isolation: isolate;
+}
+
+.section > *,
+.hero > *,
+.banner > * {
+  transform: translateZ(0);
+}
+
+/* 3D Product Carousel */
+.products {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  perspective: 1000px;
+  padding: 24px 12px 36px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.products .product {
+  flex: 0 0 260px;
+  scroll-snap-align: center;
+  transform: perspective(900px) rotateY(-4deg) translateZ(0);
+  transition:
+    transform 0.6s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.6s ease,
+    border-color 0.4s ease;
+  will-change: transform;
+}
+
+.products .product:nth-child(even) {
+  transform: perspective(900px) rotateY(4deg);
+}
+
+.products .product:hover {
+  transform: perspective(900px) rotateY(0deg)
+    translateY(-12px) translateZ(25px);
+  box-shadow: 0 25px 55px rgba(214,179,106,.22);
+}
+
+/* Product image depth */
+.products .product img {
+  transition: transform .7s cubic-bezier(.2,.8,.2,1);
+  transform: translateZ(0);
+}
+
+.products .product:hover img {
+  transform: scale(1.06) translateZ(12px);
+}
+
+/* Golden cinematic light */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(214,179,106,.15),
+    transparent 65%
+  );
+}
+
+/* Smooth golden links */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color .3s ease,
+    background-color .3s ease,
+    transform .3s ease;
+}
+
+/* Mobile performance */
+@media (max-width: 600px) {
+  .products {
+    gap: 16px;
+    padding-inline: 16px;
+  }
+
+  .products .product {
+    flex-basis: 78%;
+    transform: none;
+  }
+
+  .products .product:nth-child(even) {
+    transform: none;
+  }
+
+  .products .product:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
   </style>
 </head>
 
